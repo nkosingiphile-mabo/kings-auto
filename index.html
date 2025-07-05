@@ -29,31 +29,42 @@
 <body class="bg-[#1c1c1c] text-white">
 
     <!-- Navigation -->
-    <nav class="flex items-center justify-between px-8 py-6 bg-[#1c1c1c]">
-        <img src="assets/images/logo/logo.jpg" alt="Logo" class="h-12 object-contain max-w-[150px]" />
-        <ul class="flex gap-8 text-base">
-            <li><a href="#" class="nav-link">Home</a></li>
-            <li><a href="#" class="nav-link">About</a></li>
-            <li><a href="#" class="nav-link">Services</a></li>
-            <li><a href="#" class="nav-link">Contact</a></li>
+    <nav class="flex items-center justify-between px-10 py-4 bg-[#1c1c1c]">
+        <div class="h-full flex items-center justify-center">
+        <h1 class="text-2xl font-bold uppercase tracking-wide leading-none logo-h1">
+            <span class="text-red-600">Kings</span><span class="text-white">Auto</span>
+        </h1>
+        </div>
+        <ul class="flex gap-8 text-base font-semibold uppercase">
+            <li>
+            <a href="index.html" class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Home</a>
+            </li>
+            <li>
+            <a href="about.html" class="nav-link border-b-2 border-transparent hover:border-red-600 transition">About</a>
+            </li>
+            <li>
+            <a href="services.html" class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Services</a>
+            </li>
+            <li>
+            <a href="contact.html" class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Contact</a>
+            </li>
         </ul>
-        <a href="#" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">Book Now</a>
+        <a href="contact.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">Book Now</a>
     </nav>
-
     <!-- Hero Section with Video Background -->
     <section
         class="relative h-screen overflow-hidden bg-[#1c1c1c] text-white flex items-center justify-center px-8 md:px-16 lg:px-24">
-        <!-- 🔴 Background Video -->
+        <!-- Background Video -->
         <video autoplay muted loop playsinline id="heroVideo"
             class="absolute top-0 left-0 w-full h-full object-cover z-0 brightness-[.4]">
             <source src="assets/videos/hero-video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 
-        <!-- 🔴 Dark Overlay (optional extra dimming) -->
+        <!-- Dark Overlay (optional extra dimming) -->
         <div class="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
 
-        <!-- 🔴 Hero Content -->
+        <!-- Hero Content -->
         <div class="relative z-20 flex flex-col md:flex-row items-center max-w-7xl w-full mx-auto gap-16">
             <!-- Left Image -->
             <div class="md:w-1/2 fade-in">
@@ -63,7 +74,7 @@
             <!-- Right Text -->
             <div class="md:w-1/2 text-center md:text-left fade-in">
                 <h2 class="text-red-500 text-sm uppercase tracking-wider mb-2">Professional Car Care</h2>
-                <h1 class="text-5xl md:text-6xl font-semibold leading-tight mb-4">Keeping Your Car New</h1>
+                <h1 class="text-5xl md:text-6xl font-semibold leading-tight mb-4 hero-h1">Keeping Your Car New</h1>
                 <p class="text-lg text-gray-300 mb-6">
                     We specialize in making your vehicle look brand new again with expert maintenance and cleaning
                     services.
@@ -75,7 +86,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Features Section (Why Choose Us) -->
     <section
@@ -337,13 +347,10 @@
         </div>
     </footer>
 
-
-
-
+    <script src="js/nav.js"></script>
     <script>
         const video = document.getElementById('heroVideo');
         video.playbackRate = 0.5; // slow motion (0.5x speed)
     </script>
 </body>
-
 </html>
