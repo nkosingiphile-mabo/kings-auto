@@ -40,7 +40,7 @@
 <body class="bg-[#1c1c1c] text-white">
     <!-- Preloader -->
     <div id="preloader" class="fixed inset-0 bg-black flex items-center justify-center z-[9999]">
-    <img src="assets/images/logo/logo-transparent.png" alt="Loading..." class="h-72 w-72 animate-pulse" />
+        <img src="assets/images/logo/logo-transparent.png" alt="Loading..." class="h-72 w-72 animate-pulse" />
     </div>
 
     <!-- Navigation -->
@@ -48,20 +48,25 @@
         <!-- Logo -->
         <div class="flex items-center justify-center">
             <h1 class="text-2xl font-bold uppercase tracking-wide leading-none logo-h1">
-            <span class="text-red-600">Kings</span><span class="text-white">Auto</span>
+                <span class="text-red-600">Kings</span><span class="text-white">Auto</span>
             </h1>
         </div>
 
         <!-- Desktop Links -->
         <ul class="hidden md:flex gap-8 text-base font-semibold uppercase">
-            <li><a href="index.html" class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Home</a></li>
-            <li><a href="about.html" class="nav-link border-b-2 border-transparent hover:border-red-600 transition">About</a></li>
-            <li><a href="services.html" class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Services</a></li>
-            <li><a href="contact.html" class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Contact</a></li>
+            <li><a href="index.html"
+                    class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Home</a></li>
+            <li><a href="about.html"
+                    class="nav-link border-b-2 border-transparent hover:border-red-600 transition">About</a></li>
+            <li><a href="services.html"
+                    class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Services</a></li>
+            <li><a href="contact.html"
+                    class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Contact</a></li>
         </ul>
 
         <!-- Desktop Button -->
-        <a href="contact.html" class="hidden md:inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">
+        <a href="contact.html"
+            class="hidden md:inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">
             Book Now
         </a>
 
@@ -71,100 +76,120 @@
         </button>
 
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="absolute top-full left-0 w-full bg-[#1c1c1c] text-white flex flex-col items-center gap-6 py-6 px-4 hidden md:hidden">
-            <a href="index.html" class="uppercase font-semibold hover:text-red-600">Home</a>
-            <a href="about.html" class="uppercase font-semibold hover:text-red-600">About</a>
-            <a href="services.html" class="uppercase font-semibold hover:text-red-600">Services</a>
-            <a href="contact.html" class="uppercase font-semibold hover:text-red-600">Contact</a>
-            <a href="contact.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">
-            Book Now
-            </a>
+        <div id="mobileMenu"
+            class="absolute top-full left-0 w-full bg-[#1c1c1c] text-white flex flex-col items-center gap-6 py-6 px-4 hidden md:hidden">
+            <a href="index.html" class=" nav-link uppercase font-semibold hover:text-red-600">Home</a>
+            <a href="about.html" class=" nav-link uppercase font-semibold hover:text-red-600">About</a>
+            <a href="services.html" class="nav-link uppercase font-semibold hover:text-red-600">Services</a>
+            <a href="contact.html" class="nav-link uppercase font-semibold hover:text-red-600">Contact</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-<section class="relative h-screen overflow-hidden bg-[#1c1c1c] text-white flex items-center justify-center px-4 sm:px-6 md:px-16 lg:px-24">
-    <!-- Background Video -->
-    <video autoplay muted loop playsinline id="heroVideo"
-        class="absolute top-0 left-0 w-full h-full object-cover z-0 brightness-[.4]">
-        <source src="assets/videos/hero-video.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-    </video>
+    <section
+        class="relative h-screen overflow-hidden bg-[#1c1c1c] text-white flex items-center justify-center px-4 sm:px-6 md:px-16 lg:px-24">
+        <!-- Background Video -->
+        <video autoplay muted loop playsinline id="heroVideo"
+            class="absolute top-0 left-0 w-full h-full object-cover z-0 brightness-[.4]">
+            <source src="assets/videos/hero-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
 
-    <!-- Overlay -->
-    <div class="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
 
-    <!-- Swiper Container -->
-    <div class="relative z-20 w-full max-w-7xl">
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
+        <!-- Swiper Container -->
+        <div class="relative z-20 w-full max-w-7xl">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
 
-                <!-- Slide 1 -->
-                <div class="swiper-slide flex flex-col md:flex-row items-center gap-10 sm:gap-12 md:gap-16 px-2 sm:px-4">
-                    <div class="w-full md:w-1/2 fade-in">
-                        <img src="assets/images/mechanic.jpg" alt="Car Service"
-                            class="rounded-xl shadow-lg w-full h-auto max-h-80 sm:max-h-full object-cover" />
-                    </div>
-                    <div class="w-full md:w-1/2 text-center md:text-left fade-in mt-6 md:mt-0">
-                        <h2 class="text-red-500 text-xs sm:text-sm uppercase tracking-wider mb-2">Professional Car Care</h2>
-                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight mb-4">Keeping Your Car New</h1>
-                        <p class="text-base sm:text-lg text-gray-300 mb-6">
-                            We specialize in making your vehicle look brand new again with expert maintenance and cleaning services.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                            <a href="contact.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">Book Now</a>
-                            <a href="services.html" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-lg transition">Services</a>
+                    <!-- Slide 1 -->
+                    <div
+                        class="swiper-slide flex flex-col md:flex-row items-center gap-10 sm:gap-12 md:gap-16 px-2 sm:px-4">
+                        <div class="w-full md:w-1/2 fade-in">
+                            <img src="assets/images/mechanic.jpg" alt="Car Service"
+                                class="rounded-xl shadow-lg w-full h-auto max-h-80 sm:max-h-full object-cover" />
+                        </div>
+                        <div class="w-full md:w-1/2 text-center md:text-left fade-in mt-6 md:mt-0">
+                            <h2 class="text-red-500 text-xs sm:text-sm uppercase tracking-wider mb-2">Professional Car
+                                Care</h2>
+                            <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight mb-4">Keeping Your
+                                Car New</h1>
+                            <p class="text-base sm:text-lg text-gray-300 mb-6">
+                                We specialize in making your vehicle look brand new again with expert maintenance and
+                                cleaning services.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                                <a href="contact.html"
+                                    class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">Book
+                                    Now</a>
+                                <a href="services.html"
+                                    class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-lg transition">Services</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Slide 2 -->
-                <div class="swiper-slide flex flex-col md:flex-row items-center gap-10 sm:gap-12 md:gap-16 px-2 sm:px-4">
-                    <div class="w-full md:w-1/2 fade-in">
-                        <img src="assets/images/fix.jpg" alt="Trusted Experts"
-                            class="rounded-xl shadow-lg w-full h-auto max-h-80 sm:max-h-full object-cover" />
-                    </div>
-                    <div class="w-full md:w-1/2 text-center md:text-left fade-in mt-6 md:mt-0">
-                        <h2 class="text-red-500 text-xs sm:text-sm uppercase tracking-wider mb-2">Trusted Experts</h2>
-                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight mb-4">Repairs You Can Rely On</h1>
-                        <p class="text-base sm:text-lg text-gray-300 mb-6">
-                            With years of experience and the latest tools, we diagnose and repair with accuracy and speed.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                            <a href="contact.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">Get a Quote</a>
-                            <a href="services.html" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-lg transition">Our Work</a>
+                    <!-- Slide 2 -->
+                    <div
+                        class="swiper-slide flex flex-col md:flex-row items-center gap-10 sm:gap-12 md:gap-16 px-2 sm:px-4">
+                        <div class="w-full md:w-1/2 fade-in">
+                            <img src="assets/images/fix.jpg" alt="Trusted Experts"
+                                class="rounded-xl shadow-lg w-full h-auto max-h-80 sm:max-h-full object-cover" />
+                        </div>
+                        <div class="w-full md:w-1/2 text-center md:text-left fade-in mt-6 md:mt-0">
+                            <h2 class="text-red-500 text-xs sm:text-sm uppercase tracking-wider mb-2">Trusted Experts
+                            </h2>
+                            <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight mb-4">Repairs You
+                                Can Rely On</h1>
+                            <p class="text-base sm:text-lg text-gray-300 mb-6">
+                                With years of experience and the latest tools, we diagnose and repair with accuracy and
+                                speed.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                                <a href="contact.html"
+                                    class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">Get a
+                                    Quote</a>
+                                <a href="services.html"
+                                    class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-lg transition">Our
+                                    Work</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Slide 3 -->
-                <div class="swiper-slide flex flex-col md:flex-row items-center gap-10 sm:gap-12 md:gap-16 px-2 sm:px-4">
-                    <div class="w-full md:w-1/2 fade-in">
-                        <img src="assets/images/cars.jpg" alt="All Makes Welcome"
-                            class="rounded-xl shadow-lg w-full h-auto max-h-80 sm:max-h-full object-cover" />
-                    </div>
-                    <div class="w-full md:w-1/2 text-center md:text-left fade-in mt-6 md:mt-0">
-                        <h2 class="text-red-500 text-xs sm:text-sm uppercase tracking-wider mb-2">All Makes Welcome</h2>
-                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight mb-4">We Service Every Vehicle</h1>
-                        <p class="text-base sm:text-lg text-gray-300 mb-6">
-                            Whether you drive a Toyota, BMW, Ford, or anything in between – we’ve got you covered.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                            <a href="contact.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">Contact Us</a>
-                            <a href="services.html" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-lg transition">See Services</a>
+                    <!-- Slide 3 -->
+                    <div
+                        class="swiper-slide flex flex-col md:flex-row items-center gap-10 sm:gap-12 md:gap-16 px-2 sm:px-4">
+                        <div class="w-full md:w-1/2 fade-in">
+                            <img src="assets/images/cars.jpg" alt="All Makes Welcome"
+                                class="rounded-xl shadow-lg w-full h-auto max-h-80 sm:max-h-full object-cover" />
+                        </div>
+                        <div class="w-full md:w-1/2 text-center md:text-left fade-in mt-6 md:mt-0">
+                            <h2 class="text-red-500 text-xs sm:text-sm uppercase tracking-wider mb-2">All Makes Welcome
+                            </h2>
+                            <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight mb-4">We Service
+                                Every Vehicle</h1>
+                            <p class="text-base sm:text-lg text-gray-300 mb-6">
+                                Whether you drive a Toyota, BMW, Ford, or anything in between – we’ve got you covered.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                                <a href="contact.html"
+                                    class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">Contact
+                                    Us</a>
+                                <a href="services.html"
+                                    class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-lg transition">See
+                                    Services</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
+                <div class="swiper-pagination mt-12 !text-center hidden sm:block"></div>
             </div>
-            <div class="swiper-pagination mt-12 !text-center"></div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Features Section (Why Choose Us) -->
-    <section
-        class="relative z-10 bg-white text-black px-6 md:px-16 lg:px-24 pt-24 pb-16 -mt-20 rounded-t-3xl shadow-xl">
+    <section class="relative z-10 bg-white text-black px-6 md:px-16 lg:px-24 pt-24 pb-16 md:-mt-20 rounded-t-3xl shadow-xl">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-center text-2xl font-bold mb-12 text-[#1c1c1c]">Why Choose Us</h2>
             <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -227,43 +252,39 @@
     </section>
 
     <!-- Accreditation Section with Parallax Background -->
-    <section
-    class="relative bg-fixed bg-center bg-cover bg-no-repeat text-white px-6 md:px-16 lg:px-24 py-20"
-    style="background-image: url('assets/images/mikebird.jpg');"
-    >
-    <div class="absolute inset-0 bg-black bg-opacity-80 z-0"></div>
+    <section class="relative bg-fixed bg-center bg-cover bg-no-repeat text-white px-6 md:px-16 lg:px-24 py-20"
+        style="background-image: url('assets/images/mikebird.jpg');">
+        <div class="absolute inset-0 bg-black bg-opacity-80 z-0"></div>
 
-    <div class="relative z-10 max-w-6xl mx-auto text-center">
-        <!-- Heading -->
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide text-white">
-        We Are Approved & Accredited
-        </h2>
+        <div class="relative z-10 max-w-6xl mx-auto text-center">
+            <!-- Heading -->
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide text-white">
+                We Are Approved & Accredited
+            </h2>
 
-        <!-- Paragraph -->
-        <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
-        At KingsAuto Service Centre, we hold the prestigious certifications from both
-        <strong>MIWA</strong> (Motor Industry Workshop Association) and
-        <strong>RMI</strong> (Retail Motor Industry Organization).
-        <strong>MIWA</strong> represents the highest standards of service excellence and integrity in the
-        automotive industry,
-        while <strong>RMI</strong> promotes professionalism and ethical conduct.
-        These approvals reflect our commitment to quality workmanship and customer satisfaction.
-        </p>
+            <!-- Paragraph -->
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+                At KingsAuto Service Centre, we hold the prestigious certifications from both
+                <strong>MIWA</strong> (Motor Industry Workshop Association) and
+                <strong>RMI</strong> (Retail Motor Industry Organization).
+                <strong>MIWA</strong> represents the highest standards of service excellence and integrity in the
+                automotive industry,
+                while <strong>RMI</strong> promotes professionalism and ethical conduct.
+                These approvals reflect our commitment to quality workmanship and customer satisfaction.
+            </p>
 
-        <!-- Logos -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-12 mb-10">
-        <img src="assets/images/sponsors/miwa.jpg" alt="MIWA"
-            class="h-20 object-contain" />
-        <img src="assets/images/sponsors/rmi.png" alt="RMI"
-            class="h-20 object-contain" />
+            <!-- Logos -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-12 mb-10">
+                <img src="assets/images/sponsors/miwa.jpg" alt="MIWA" class="h-20 object-contain" />
+                <img src="assets/images/sponsors/rmi.png" alt="RMI" class="h-20 object-contain" />
+            </div>
+
+            <!-- Button -->
+            <a href="#verification-link"
+                class="inline-block bg-red-600 hover:bg-red-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 shadow">
+                Check Verification
+            </a>
         </div>
-
-        <!-- Button -->
-        <a href="#verification-link"
-        class="inline-block bg-red-600 hover:bg-red-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 shadow">
-        Check Verification
-        </a>
-    </div>
     </section>
 
     <!-- Services Covered Section -->
@@ -272,71 +293,79 @@
             <h2 class="text-3xl md:text-4xl font-bold mb-12 uppercase">We Cover Everything</h2>
 
             <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            <!-- Row 1 -->
-            <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                <img src="assets/images/services/exhaust.png" alt="Exhaust" class="h-28 mx-auto mb-4 object-contain" />
-                <h3 class="text-lg font-semibold mb-2">Exhaust</h3>
-                <p class="text-sm text-gray-600">Repairs and replacements for exhaust leaks or noise issues.</p>
-            </div>
+                <!-- Row 1 -->
+                <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                    <img src="assets/images/services/exhaust.png" alt="Exhaust"
+                        class="h-28 mx-auto mb-4 object-contain" />
+                    <h3 class="text-lg font-semibold mb-2">Exhaust</h3>
+                    <p class="text-sm text-gray-600">Repairs and replacements for exhaust leaks or noise issues.</p>
+                </div>
 
-            <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                <img src="assets/images/services/ignition.png" alt="Ignition" class="h-28 mx-auto mb-4 object-contain" />
-                <h3 class="text-lg font-semibold mb-2">Ignition</h3>
-                <p class="text-sm text-gray-600">Diagnosis and fixing of ignition problems for smooth starts.</p>
-            </div>
+                <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                    <img src="assets/images/services/ignition.png" alt="Ignition"
+                        class="h-28 mx-auto mb-4 object-contain" />
+                    <h3 class="text-lg font-semibold mb-2">Ignition</h3>
+                    <p class="text-sm text-gray-600">Diagnosis and fixing of ignition problems for smooth starts.</p>
+                </div>
 
-            <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                <img src="assets/images/services/wheel.png" alt="Wheel" class="h-28 mx-auto mb-4 object-contain" />
-                <h3 class="text-lg font-semibold mb-2">Wheel</h3>
-                <p class="text-sm text-gray-600">Alignment, rotation, and balancing for a safer ride.</p>
-            </div>
+                <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                    <img src="assets/images/services/wheel.png" alt="Wheel" class="h-28 mx-auto mb-4 object-contain" />
+                    <h3 class="text-lg font-semibold mb-2">Wheel</h3>
+                    <p class="text-sm text-gray-600">Alignment, rotation, and balancing for a safer ride.</p>
+                </div>
 
-            <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                <img src="assets/images/services/engine.png" alt="Engine" class="h-28 mx-auto mb-4 object-contain" />
-                <h3 class="text-lg font-semibold mb-2">Engine</h3>
-                <p class="text-sm text-gray-600">Full diagnostics and engine repairs to keep your car running strong.</p>
-            </div>
+                <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                    <img src="assets/images/services/engine.png" alt="Engine"
+                        class="h-28 mx-auto mb-4 object-contain" />
+                    <h3 class="text-lg font-semibold mb-2">Engine</h3>
+                    <p class="text-sm text-gray-600">Full diagnostics and engine repairs to keep your car running
+                        strong.</p>
+                </div>
             </div>
 
             <!-- Hidden Row (initially hidden) -->
             <div id="more-services" class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-10 hidden">
-            <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                <img src="assets/images/services/oil.png" alt="Oil" class="h-28 mx-auto mb-4 object-contain" />
-                <h3 class="text-lg font-semibold mb-2">Oil</h3>
-                <p class="text-sm text-gray-600">Quality oil changes to keep your engine clean and lubricated.</p>
-            </div>
+                <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                    <img src="assets/images/services/oil.png" alt="Oil" class="h-28 mx-auto mb-4 object-contain" />
+                    <h3 class="text-lg font-semibold mb-2">Oil</h3>
+                    <p class="text-sm text-gray-600">Quality oil changes to keep your engine clean and lubricated.</p>
+                </div>
 
-            <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                <img src="assets/images/services/brakes.png" alt="Brakes" class="h-28 mx-auto mb-4 object-contain" />
-                <h3 class="text-lg font-semibold mb-2">Brakes</h3>
-                <p class="text-sm text-gray-600">Comprehensive brake services for optimal safety.</p>
-            </div>
+                <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                    <img src="assets/images/services/brakes.png" alt="Brakes"
+                        class="h-28 mx-auto mb-4 object-contain" />
+                    <h3 class="text-lg font-semibold mb-2">Brakes</h3>
+                    <p class="text-sm text-gray-600">Comprehensive brake services for optimal safety.</p>
+                </div>
 
-            <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                <img src="https://bossautorepairs.co.za/wp-content/uploads/2024/03/pngegg-11-1024x962.png" alt="Transmission" class="h-28 mx-auto mb-4 object-contain" />
-                <h3 class="text-lg font-semibold mb-2">Transmission</h3>
-                <p class="text-sm text-gray-600">Automatic and manual transmission maintenance and repair.</p>
-            </div>
+                <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                    <img src="https://bossautorepairs.co.za/wp-content/uploads/2024/03/pngegg-11-1024x962.png"
+                        alt="Transmission" class="h-28 mx-auto mb-4 object-contain" />
+                    <h3 class="text-lg font-semibold mb-2">Transmission</h3>
+                    <p class="text-sm text-gray-600">Automatic and manual transmission maintenance and repair.</p>
+                </div>
 
-            <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                <img src="assets/images/services/shock.png" alt="Shock Absorber" class="h-28 mx-auto mb-4 object-contain" />
-                <h3 class="text-lg font-semibold mb-2">Shock Absorber</h3>
-                <p class="text-sm text-gray-600">Replacement and repair of worn-out shocks for a smoother ride.</p>
-            </div>
+                <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                    <img src="assets/images/services/shock.png" alt="Shock Absorber"
+                        class="h-28 mx-auto mb-4 object-contain" />
+                    <h3 class="text-lg font-semibold mb-2">Shock Absorber</h3>
+                    <p class="text-sm text-gray-600">Replacement and repair of worn-out shocks for a smoother ride.</p>
+                </div>
 
-            <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                <img src="https://bossautorepairs.co.za/wp-content/uploads/2024/03/pngegg-13-1024x935.png" alt="Steering Wheel" class="h-28 mx-auto mb-4 object-contain" />
-                <h3 class="text-lg font-semibold mb-2">Steering Wheel</h3>
-                <p class="text-sm text-gray-600">Power steering inspection and repair for effortless control.</p>
-            </div>
+                <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                    <img src="https://bossautorepairs.co.za/wp-content/uploads/2024/03/pngegg-13-1024x935.png"
+                        alt="Steering Wheel" class="h-28 mx-auto mb-4 object-contain" />
+                    <h3 class="text-lg font-semibold mb-2">Steering Wheel</h3>
+                    <p class="text-sm text-gray-600">Power steering inspection and repair for effortless control.</p>
+                </div>
             </div>
 
             <!-- See More Button -->
             <div class="mt-10">
-            <button id="seeMoreBtn"
-                class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg shadow transition-all duration-300">
-                See More
-            </button>
+                <button id="seeMoreBtn"
+                    class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg shadow transition-all duration-300">
+                    See More
+                </button>
             </div>
         </div>
     </section>
@@ -418,33 +447,33 @@
     </section>
 
     <!-- Footer -->
-  <footer class="bg-[#111] text-gray-400 px-6 md:px-16 lg:px-24 py-10">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer class="bg-[#111] text-gray-400 px-6 md:px-16 lg:px-24 py-10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
 
-      <!-- Logo or Name -->
-      <div class="flex items-center gap-3">
-        <img src="assets/images/logo/logo-transparent.png" alt="Logo" class="h-20 rounded object-contain" />
-        <div class="h-full flex items-center justify-center">
-          <h1 class="text-2xl font-bold uppercase tracking-wide leading-none logo-h1">
-            <span class="text-red-600">Kings</span><span class="text-white">Auto</span>
-          </h1>
+            <!-- Logo or Name -->
+            <div class="flex flex-col md:flex-row items-center gap-3 text-center md:text-left">
+                <img src="assets/images/logo/logo-transparent.png" alt="Logo" class="h-20 rounded object-contain" />
+                <div class="h-full flex items-center justify-center">
+                    <h1 class="text-2xl font-bold uppercase tracking-wide leading-none logo-h1">
+                        <span class="text-red-600">Kings</span><span class="text-white">Auto</span>
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Footer Links -->
+            <div class="flex gap-6 text-sm">
+                <a href="index.html" class="hover:text-red-500">Home</a>
+                <a href="about.html" class="hover:text-red-500">About</a>
+                <a href="services.html" class="hover:text-red-500">Services</a>
+                <a href="contact.html" class="hover:text-red-500">Contact</a>
+            </div>
         </div>
-      </div>
 
-      <!-- Footer Links -->
-      <div class="flex gap-6 text-sm">
-        <a href="index.html" class="hover:text-red-500">Home</a>
-        <a href="about.html" class="hover:text-red-500">About</a>
-        <a href="services.html" class="hover:text-red-500">Services</a>
-        <a href="contact.html" class="hover:text-red-500">Contact</a>
-      </div>
-    </div>
-
-    <!-- Copyright -->
-    <div class="text-center text-xs mt-6 text-gray-500">
-      &copy; 2025 KingsAuto Service Centre. All rights reserved.
-    </div>
-  </footer>
+        <!-- Copyright -->
+        <div class="text-center text-xs mt-6 text-gray-500">
+            &copy; 2025 KingsAuto Service Centre. All rights reserved.
+        </div>
+    </footer>
     <script src="js/nav.js"></script>
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
@@ -468,12 +497,13 @@
         });
 
         const seeMoreBtn = document.getElementById("seeMoreBtn");
-            const moreServices = document.getElementById("more-services");
+        const moreServices = document.getElementById("more-services");
 
-            seeMoreBtn.addEventListener("click", () => {
-                moreServices.classList.toggle("hidden");
-                seeMoreBtn.textContent = moreServices.classList.contains("hidden") ? "See More" : "See Less";
+        seeMoreBtn.addEventListener("click", () => {
+            moreServices.classList.toggle("hidden");
+            seeMoreBtn.textContent = moreServices.classList.contains("hidden") ? "See More" : "See Less";
         });
     </script>
 </body>
+
 </html>
