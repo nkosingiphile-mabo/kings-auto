@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/styles.css" />
+    <!-- SwiperJS CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- SwiperJS Script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
 
     <style>
         .fade-in {
@@ -23,69 +30,137 @@
                 transform: translateY(0);
             }
         }
+
+        .swiper-pagination {
+            text-align: center;
+        }
     </style>
 </head>
 
 <body class="bg-[#1c1c1c] text-white">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-black flex items-center justify-center z-[9999]">
+    <img src="assets/images/logo/logo-transparent.png" alt="Loading..." class="h-72 w-72 animate-pulse" />
+    </div>
 
     <!-- Navigation -->
-    <nav class="flex items-center justify-between px-10 py-4 bg-[#1c1c1c]">
-        <div class="h-full flex items-center justify-center">
-        <h1 class="text-2xl font-bold uppercase tracking-wide leading-none logo-h1">
+    <nav class="flex items-center justify-between px-6 py-4 bg-[#1c1c1c] relative z-50">
+        <!-- Logo -->
+        <div class="flex items-center justify-center">
+            <h1 class="text-2xl font-bold uppercase tracking-wide leading-none logo-h1">
             <span class="text-red-600">Kings</span><span class="text-white">Auto</span>
-        </h1>
+            </h1>
         </div>
-        <ul class="flex gap-8 text-base font-semibold uppercase">
-            <li>
-            <a href="index.html" class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Home</a>
-            </li>
-            <li>
-            <a href="about.html" class="nav-link border-b-2 border-transparent hover:border-red-600 transition">About</a>
-            </li>
-            <li>
-            <a href="services.html" class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Services</a>
-            </li>
-            <li>
-            <a href="contact.html" class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Contact</a>
-            </li>
+
+        <!-- Desktop Links -->
+        <ul class="hidden md:flex gap-8 text-base font-semibold uppercase">
+            <li><a href="index.html" class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Home</a></li>
+            <li><a href="about.html" class="nav-link border-b-2 border-transparent hover:border-red-600 transition">About</a></li>
+            <li><a href="services.html" class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Services</a></li>
+            <li><a href="contact.html" class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Contact</a></li>
         </ul>
-        <a href="contact.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">Book Now</a>
-    </nav>
-    <!-- Hero Section with Video Background -->
-    <section
-        class="relative h-screen overflow-hidden bg-[#1c1c1c] text-white flex items-center justify-center px-8 md:px-16 lg:px-24">
-        <!-- Background Video -->
-        <video autoplay muted loop playsinline id="heroVideo"
-            class="absolute top-0 left-0 w-full h-full object-cover z-0 brightness-[.4]">
-            <source src="assets/videos/hero-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
 
-        <!-- Dark Overlay (optional extra dimming) -->
-        <div class="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+        <!-- Desktop Button -->
+        <a href="contact.html" class="hidden md:inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">
+            Book Now
+        </a>
 
-        <!-- Hero Content -->
-        <div class="relative z-20 flex flex-col md:flex-row items-center max-w-7xl w-full mx-auto gap-16">
-            <!-- Left Image -->
-            <div class="md:w-1/2 fade-in">
-                <img src="assets/images/mechanic.jpg" alt="Car Service" class="rounded-xl shadow-lg w-full" />
-            </div>
+        <!-- Hamburger Button -->
+        <button id="menuToggle" class="md:hidden text-white text-2xl focus:outline-none">
+            <i class="fas fa-bars"></i>
+        </button>
 
-            <!-- Right Text -->
-            <div class="md:w-1/2 text-center md:text-left fade-in">
-                <h2 class="text-red-500 text-sm uppercase tracking-wider mb-2">Professional Car Care</h2>
-                <h1 class="text-5xl md:text-6xl font-semibold leading-tight mb-4 hero-h1">Keeping Your Car New</h1>
-                <p class="text-lg text-gray-300 mb-6">
-                    We specialize in making your vehicle look brand new again with expert maintenance and cleaning
-                    services.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#" class="button-red hover:scale-105 transition-all duration-300">Book Now</a>
-                    <a href="#" class="button-gray hover:scale-105 transition-all duration-300">Services</a>
-                </div>
-            </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="absolute top-full left-0 w-full bg-[#1c1c1c] text-white flex flex-col items-center gap-6 py-6 px-4 hidden md:hidden">
+            <a href="index.html" class="uppercase font-semibold hover:text-red-600">Home</a>
+            <a href="about.html" class="uppercase font-semibold hover:text-red-600">About</a>
+            <a href="services.html" class="uppercase font-semibold hover:text-red-600">Services</a>
+            <a href="contact.html" class="uppercase font-semibold hover:text-red-600">Contact</a>
+            <a href="contact.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">
+            Book Now
+            </a>
         </div>
-    </section>
+    </nav>
+
+    <!-- Hero Section -->
+<section class="relative h-screen overflow-hidden bg-[#1c1c1c] text-white flex items-center justify-center px-4 sm:px-6 md:px-16 lg:px-24">
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline id="heroVideo"
+        class="absolute top-0 left-0 w-full h-full object-cover z-0 brightness-[.4]">
+        <source src="assets/videos/hero-video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+
+    <!-- Swiper Container -->
+    <div class="relative z-20 w-full max-w-7xl">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+
+                <!-- Slide 1 -->
+                <div class="swiper-slide flex flex-col md:flex-row items-center gap-10 sm:gap-12 md:gap-16 px-2 sm:px-4">
+                    <div class="w-full md:w-1/2 fade-in">
+                        <img src="assets/images/mechanic.jpg" alt="Car Service"
+                            class="rounded-xl shadow-lg w-full h-auto max-h-80 sm:max-h-full object-cover" />
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-left fade-in mt-6 md:mt-0">
+                        <h2 class="text-red-500 text-xs sm:text-sm uppercase tracking-wider mb-2">Professional Car Care</h2>
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight mb-4">Keeping Your Car New</h1>
+                        <p class="text-base sm:text-lg text-gray-300 mb-6">
+                            We specialize in making your vehicle look brand new again with expert maintenance and cleaning services.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                            <a href="contact.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">Book Now</a>
+                            <a href="services.html" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-lg transition">Services</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="swiper-slide flex flex-col md:flex-row items-center gap-10 sm:gap-12 md:gap-16 px-2 sm:px-4">
+                    <div class="w-full md:w-1/2 fade-in">
+                        <img src="assets/images/fix.jpg" alt="Trusted Experts"
+                            class="rounded-xl shadow-lg w-full h-auto max-h-80 sm:max-h-full object-cover" />
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-left fade-in mt-6 md:mt-0">
+                        <h2 class="text-red-500 text-xs sm:text-sm uppercase tracking-wider mb-2">Trusted Experts</h2>
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight mb-4">Repairs You Can Rely On</h1>
+                        <p class="text-base sm:text-lg text-gray-300 mb-6">
+                            With years of experience and the latest tools, we diagnose and repair with accuracy and speed.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                            <a href="contact.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">Get a Quote</a>
+                            <a href="services.html" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-lg transition">Our Work</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="swiper-slide flex flex-col md:flex-row items-center gap-10 sm:gap-12 md:gap-16 px-2 sm:px-4">
+                    <div class="w-full md:w-1/2 fade-in">
+                        <img src="assets/images/cars.jpg" alt="All Makes Welcome"
+                            class="rounded-xl shadow-lg w-full h-auto max-h-80 sm:max-h-full object-cover" />
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-left fade-in mt-6 md:mt-0">
+                        <h2 class="text-red-500 text-xs sm:text-sm uppercase tracking-wider mb-2">All Makes Welcome</h2>
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight mb-4">We Service Every Vehicle</h1>
+                        <p class="text-base sm:text-lg text-gray-300 mb-6">
+                            Whether you drive a Toyota, BMW, Ford, or anything in between – we’ve got you covered.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                            <a href="contact.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">Contact Us</a>
+                            <a href="services.html" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-lg transition">See Services</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-pagination mt-12 !text-center"></div>
+        </div>
+    </div>
+</section>
 
     <!-- Features Section (Why Choose Us) -->
     <section
@@ -95,7 +170,9 @@
             <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
 
                 <!-- Feature 1 -->
-                <div class="bg-[#f5f5f5] p-6 rounded-xl shadow-md text-center">
+                <div class="bg-[#f5f5f5] p-6 rounded-xl shadow-md text-center 
+                    transform transition duration-300 hover:-translate-y-2 
+                    hover:shadow-xl" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
                     <div class="text-red-500 mb-4">
                         <i class="fas fa-clock fa-2x"></i>
                     </div>
@@ -107,7 +184,9 @@
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="bg-[#f5f5f5] p-6 rounded-xl shadow-md text-center">
+                <div class="bg-[#f5f5f5] p-6 rounded-xl shadow-md text-center 
+                    transform transition duration-300 hover:-translate-y-2 
+                    hover:shadow-xl" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
                     <div class="text-red-500 mb-4">
                         <i class="fas fa-tags fa-2x"></i>
                     </div>
@@ -118,7 +197,9 @@
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="bg-[#f5f5f5] p-6 rounded-xl shadow-md text-center">
+                <div class="bg-[#f5f5f5] p-6 rounded-xl shadow-md text-center 
+                    transform transition duration-300 hover:-translate-y-2 
+                    hover:shadow-xl" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
                     <div class="text-red-500 mb-4">
                         <i class="fas fa-tools fa-2x"></i>
                     </div>
@@ -129,7 +210,9 @@
                 </div>
 
                 <!-- Feature 4 -->
-                <div class="bg-[#f5f5f5] p-6 rounded-xl shadow-md text-center">
+                <div class="bg-[#f5f5f5] p-6 rounded-xl shadow-md text-center 
+                    transform transition duration-300 hover:-translate-y-2 
+                    hover:shadow-xl" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
                     <div class="text-red-500 mb-4">
                         <i class="fas fa-users fa-2x"></i>
                     </div>
@@ -142,111 +225,122 @@
             </div>
         </div>
     </section>
-    <!-- Accreditation Section -->
-    <section class="bg-[#2b2b2b] text-white px-6 md:px-16 lg:px-24 py-20">
-        <div class="max-w-6xl mx-auto text-center">
-            <!-- Heading -->
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide text-white">
-                We Are Approved & Accredited
-            </h2>
 
-            <!-- Paragraph -->
-            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
-                At Boss Auto Repairs, we hold the prestigious certifications from both
-                <strong>MIWA</strong> (Motor Industry Workshop Association) and
-                <strong>RMI</strong> (Retail Motor Industry Organization).
-                <strong>MIWA</strong> represents the highest standards of service excellence and integrity in the
-                automotive industry,
-                while <strong>RMI</strong> promotes professionalism and ethical conduct.
-                These approvals reflect our commitment to quality workmanship and customer satisfaction.
-            </p>
+    <!-- Accreditation Section with Parallax Background -->
+    <section
+    class="relative bg-fixed bg-center bg-cover bg-no-repeat text-white px-6 md:px-16 lg:px-24 py-20"
+    style="background-image: url('assets/images/mikebird.jpg');"
+    >
+    <div class="absolute inset-0 bg-black bg-opacity-80 z-0"></div>
 
-            <!-- Logos -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-12 mb-10">
-                <img src="assets/images/sponsors/miwa.jpg" alt="MIWA"
-                    class="h-20 object-contain grayscale hover:grayscale-0 transition" />
-                <img src="assets/images/sponsors/rmi.png" alt="RMI"
-                    class="h-20 object-contain grayscale hover:grayscale-0 transition" />
-            </div>
+    <div class="relative z-10 max-w-6xl mx-auto text-center">
+        <!-- Heading -->
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide text-white">
+        We Are Approved & Accredited
+        </h2>
 
-            <!-- Button -->
-            <a href="#verification-link"
-                class="inline-block bg-red-600 hover:bg-red-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 shadow">
-                Check Verification
-            </a>
+        <!-- Paragraph -->
+        <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+        At KingsAuto Service Centre, we hold the prestigious certifications from both
+        <strong>MIWA</strong> (Motor Industry Workshop Association) and
+        <strong>RMI</strong> (Retail Motor Industry Organization).
+        <strong>MIWA</strong> represents the highest standards of service excellence and integrity in the
+        automotive industry,
+        while <strong>RMI</strong> promotes professionalism and ethical conduct.
+        These approvals reflect our commitment to quality workmanship and customer satisfaction.
+        </p>
+
+        <!-- Logos -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-12 mb-10">
+        <img src="assets/images/sponsors/miwa.jpg" alt="MIWA"
+            class="h-20 object-contain" />
+        <img src="assets/images/sponsors/rmi.png" alt="RMI"
+            class="h-20 object-contain" />
         </div>
+
+        <!-- Button -->
+        <a href="#verification-link"
+        class="inline-block bg-red-600 hover:bg-red-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 shadow">
+        Check Verification
+        </a>
+    </div>
     </section>
+
     <!-- Services Covered Section -->
     <section class="bg-[#f5f5f5] text-[#1c1c1c] px-6 md:px-16 lg:px-24 py-20">
         <div class="max-w-7xl mx-auto text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-12 uppercase">We Cover Everything</h2>
 
             <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                <!-- Repeat this block for each service -->
-                <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                    <img src="assets/images/services/exhaust.png" alt="Exhaust"
-                        class="h-28 mx-auto mb-4 object-contain" />
-                    <h3 class="text-lg font-semibold mb-2">Exhaust</h3>
-                    <p class="text-sm text-gray-600">Repairs and replacements for exhaust leaks or noise issues.</p>
-                </div>
+            <!-- Row 1 -->
+            <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                <img src="assets/images/services/exhaust.png" alt="Exhaust" class="h-28 mx-auto mb-4 object-contain" />
+                <h3 class="text-lg font-semibold mb-2">Exhaust</h3>
+                <p class="text-sm text-gray-600">Repairs and replacements for exhaust leaks or noise issues.</p>
+            </div>
 
-                <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                    <img src="assets/images/services/ignition.png" alt="Ignition"
-                        class="h-28 mx-auto mb-4 object-contain" />
-                    <h3 class="text-lg font-semibold mb-2">Ignition</h3>
-                    <p class="text-sm text-gray-600">Diagnosis and fixing of ignition problems for smooth starts.</p>
-                </div>
+            <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                <img src="assets/images/services/ignition.png" alt="Ignition" class="h-28 mx-auto mb-4 object-contain" />
+                <h3 class="text-lg font-semibold mb-2">Ignition</h3>
+                <p class="text-sm text-gray-600">Diagnosis and fixing of ignition problems for smooth starts.</p>
+            </div>
 
-                <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                    <img src="assets/images/services/wheel.png" alt="Wheel" class="h-28 mx-auto mb-4 object-contain" />
-                    <h3 class="text-lg font-semibold mb-2">Wheel</h3>
-                    <p class="text-sm text-gray-600">Alignment, rotation, and balancing for a safer ride.</p>
-                </div>
+            <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                <img src="assets/images/services/wheel.png" alt="Wheel" class="h-28 mx-auto mb-4 object-contain" />
+                <h3 class="text-lg font-semibold mb-2">Wheel</h3>
+                <p class="text-sm text-gray-600">Alignment, rotation, and balancing for a safer ride.</p>
+            </div>
 
-                <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                    <img src="assets/images/services/engine.png" alt="Engine"
-                        class="h-28 mx-auto mb-4 object-contain" />
-                    <h3 class="text-lg font-semibold mb-2">Engine</h3>
-                    <p class="text-sm text-gray-600">Full diagnostics and engine repairs to keep your car running
-                        strong.</p>
-                </div>
+            <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                <img src="assets/images/services/engine.png" alt="Engine" class="h-28 mx-auto mb-4 object-contain" />
+                <h3 class="text-lg font-semibold mb-2">Engine</h3>
+                <p class="text-sm text-gray-600">Full diagnostics and engine repairs to keep your car running strong.</p>
+            </div>
+            </div>
 
-                <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                    <img src="assets/images/services/oil.png" alt="Oil" class="h-28 mx-auto mb-4 object-contain" />
-                    <h3 class="text-lg font-semibold mb-2">Oil</h3>
-                    <p class="text-sm text-gray-600">Quality oil changes to keep your engine clean and lubricated.</p>
-                </div>
+            <!-- Hidden Row (initially hidden) -->
+            <div id="more-services" class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-10 hidden">
+            <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                <img src="assets/images/services/oil.png" alt="Oil" class="h-28 mx-auto mb-4 object-contain" />
+                <h3 class="text-lg font-semibold mb-2">Oil</h3>
+                <p class="text-sm text-gray-600">Quality oil changes to keep your engine clean and lubricated.</p>
+            </div>
 
-                <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                    <img src="assets/images/services/brakes.png" alt="Brakes"
-                        class="h-28 mx-auto mb-4 object-contain" />
-                    <h3 class="text-lg font-semibold mb-2">Brakes</h3>
-                    <p class="text-sm text-gray-600">Comprehensive brake services for optimal safety.</p>
-                </div>
+            <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                <img src="assets/images/services/brakes.png" alt="Brakes" class="h-28 mx-auto mb-4 object-contain" />
+                <h3 class="text-lg font-semibold mb-2">Brakes</h3>
+                <p class="text-sm text-gray-600">Comprehensive brake services for optimal safety.</p>
+            </div>
 
-                <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                    <img src="https://bossautorepairs.co.za/wp-content/uploads/2024/03/pngegg-11-1024x962.png"
-                        alt="Transmission" class="h-28 mx-auto mb-4 object-contain" />
-                    <h3 class="text-lg font-semibold mb-2">Transmission</h3>
-                    <p class="text-sm text-gray-600">Automatic and manual transmission maintenance and repair.</p>
-                </div>
+            <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                <img src="https://bossautorepairs.co.za/wp-content/uploads/2024/03/pngegg-11-1024x962.png" alt="Transmission" class="h-28 mx-auto mb-4 object-contain" />
+                <h3 class="text-lg font-semibold mb-2">Transmission</h3>
+                <p class="text-sm text-gray-600">Automatic and manual transmission maintenance and repair.</p>
+            </div>
 
-                <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                    <img src="assets/images/services/shock.png" alt="Shock Absorber"
-                        class="h-28 mx-auto mb-4 object-contain" />
-                    <h3 class="text-lg font-semibold mb-2">Shock Absorber</h3>
-                    <p class="text-sm text-gray-600">Replacement and repair of worn-out shocks for a smoother ride.</p>
-                </div>
+            <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                <img src="assets/images/services/shock.png" alt="Shock Absorber" class="h-28 mx-auto mb-4 object-contain" />
+                <h3 class="text-lg font-semibold mb-2">Shock Absorber</h3>
+                <p class="text-sm text-gray-600">Replacement and repair of worn-out shocks for a smoother ride.</p>
+            </div>
 
-                <div class="bg-white rounded-xl shadow-md p-5 text-center">
-                    <img src="https://bossautorepairs.co.za/wp-content/uploads/2024/03/pngegg-13-1024x935.png"
-                        alt="Steering Wheel" class="h-28 mx-auto mb-4 object-contain" />
-                    <h3 class="text-lg font-semibold mb-2">Steering Wheel</h3>
-                    <p class="text-sm text-gray-600">Power steering inspection and repair for effortless control.</p>
-                </div>
+            <div class="bg-white rounded-xl shadow-md p-5 text-center">
+                <img src="https://bossautorepairs.co.za/wp-content/uploads/2024/03/pngegg-13-1024x935.png" alt="Steering Wheel" class="h-28 mx-auto mb-4 object-contain" />
+                <h3 class="text-lg font-semibold mb-2">Steering Wheel</h3>
+                <p class="text-sm text-gray-600">Power steering inspection and repair for effortless control.</p>
+            </div>
+            </div>
+
+            <!-- See More Button -->
+            <div class="mt-10">
+            <button id="seeMoreBtn"
+                class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg shadow transition-all duration-300">
+                See More
+            </button>
             </div>
         </div>
     </section>
+
     <!-- Latest Technology Section -->
     <section class="bg-[#2b2b2b] text-white px-6 md:px-16 lg:px-24 py-20">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
@@ -261,7 +355,8 @@
             <div class="md:w-1/2 w-full flex flex-col justify-center h-full">
                 <h2 class="text-2xl md:text-3xl font-bold mb-4">Latest Technology</h2>
                 <p class="text-gray-300 leading-relaxed text-base">
-                    Boss Auto Repairs is equipped with the latest diagnostic technology to pinpoint exactly what’s wrong
+                    KingsAuto Service Centre is equipped with the latest diagnostic technology to pinpoint exactly
+                    what’s wrong
                     with your vehicle – so we can fix it quickly and efficiently.
                     <br class="hidden sm:block" /><br />
                     We repair wheel bearings, brakes, gearboxes, and also assist with auto electric issues, clutch and
@@ -323,34 +418,62 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#111] text-gray-400 px-6 md:px-16 lg:px-24 py-10">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+  <footer class="bg-[#111] text-gray-400 px-6 md:px-16 lg:px-24 py-10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
 
-            <!-- Logo or Name -->
-            <div class="flex items-center gap-3">
-                <img src="assets/images/logo/logo.jpg" alt="Logo" class="h-10 rounded object-contain" />
-                <span class="text-white font-semibold text-lg">KingsAuto Service Centre</span>
-            </div>
-
-            <!-- Footer Links -->
-            <div class="flex gap-6 text-sm">
-                <a href="#" class="hover:text-red-500">Home</a>
-                <a href="#" class="hover:text-red-500">Services</a>
-                <a href="#" class="hover:text-red-500">About</a>
-                <a href="#" class="hover:text-red-500">Contact</a>
-            </div>
+      <!-- Logo or Name -->
+      <div class="flex items-center gap-3">
+        <img src="assets/images/logo/logo-transparent.png" alt="Logo" class="h-20 rounded object-contain" />
+        <div class="h-full flex items-center justify-center">
+          <h1 class="text-2xl font-bold uppercase tracking-wide leading-none logo-h1">
+            <span class="text-red-600">Kings</span><span class="text-white">Auto</span>
+          </h1>
         </div>
+      </div>
 
-        <!-- Copyright -->
-        <div class="text-center text-xs mt-6 text-gray-500">
-            &copy; 2025 KingsAuto Service Centre. All rights reserved.
-        </div>
-    </footer>
+      <!-- Footer Links -->
+      <div class="flex gap-6 text-sm">
+        <a href="index.html" class="hover:text-red-500">Home</a>
+        <a href="about.html" class="hover:text-red-500">About</a>
+        <a href="services.html" class="hover:text-red-500">Services</a>
+        <a href="contact.html" class="hover:text-red-500">Contact</a>
+      </div>
+    </div>
 
+    <!-- Copyright -->
+    <div class="text-center text-xs mt-6 text-gray-500">
+      &copy; 2025 KingsAuto Service Centre. All rights reserved.
+    </div>
+  </footer>
     <script src="js/nav.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script>
         const video = document.getElementById('heroVideo');
         video.playbackRate = 0.5; // slow motion (0.5x speed)
+
+        const swiper = new Swiper(".mySwiper", {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+
+        const seeMoreBtn = document.getElementById("seeMoreBtn");
+            const moreServices = document.getElementById("more-services");
+
+            seeMoreBtn.addEventListener("click", () => {
+                moreServices.classList.toggle("hidden");
+                seeMoreBtn.textContent = moreServices.classList.contains("hidden") ? "See More" : "See Less";
+        });
     </script>
 </body>
 </html>

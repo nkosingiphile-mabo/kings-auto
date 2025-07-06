@@ -27,34 +27,53 @@
 </head>
 
 <body class="bg-[#1c1c1c] text-white">
-
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-black flex items-center justify-center z-[9999]">
+        <img src="assets/images/logo/logo-transparent.png" alt="Loading..." class="h-72 w-72 animate-pulse" />
+    </div>
     <!-- Navigation -->
-    <nav class="flex items-center justify-between px-10 py-4 bg-[#1c1c1c]">
-        <div class="h-full flex items-center justify-center">
+    <nav class="flex items-center justify-between px-6 py-4 bg-[#1c1c1c] relative z-50">
+        <!-- Logo -->
+        <div class="flex items-center justify-center">
             <h1 class="text-2xl font-bold uppercase tracking-wide leading-none logo-h1">
                 <span class="text-red-600">Kings</span><span class="text-white">Auto</span>
             </h1>
         </div>
-        <ul class="flex gap-8 text-base font-semibold uppercase">
-            <li>
-                <a href="index.html"
-                    class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Home</a>
-            </li>
-            <li>
-                <a href="about.html"
-                    class="nav-link border-b-2 border-transparent hover:border-red-600 transition">About</a>
-            </li>
-            <li>
-                <a href="services.html"
-                    class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Services</a>
-            </li>
-            <li>
-                <a href="contact.html"
-                    class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Contact</a>
-            </li>
+
+        <!-- Desktop Links -->
+        <ul class="hidden md:flex gap-8 text-base font-semibold uppercase">
+            <li><a href="index.html"
+                    class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Home</a></li>
+            <li><a href="about.html"
+                    class="nav-link border-b-2 border-transparent hover:border-red-600 transition">About</a></li>
+            <li><a href="services.html"
+                    class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Services</a></li>
+            <li><a href="contact.html"
+                    class="nav-link border-b-2 border-transparent hover:border-red-600 transition">Contact</a></li>
         </ul>
-        <a href="contact.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">Book
-            Now</a>
+
+        <!-- Desktop Button -->
+        <a href="contact.html"
+            class="hidden md:inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">
+            Book Now
+        </a>
+
+        <!-- Hamburger Button -->
+        <button id="menuToggle" class="md:hidden text-white text-2xl focus:outline-none">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu"
+            class="absolute top-full left-0 w-full bg-[#1c1c1c] text-white flex flex-col items-center gap-6 py-6 px-4 hidden md:hidden">
+            <a href="index.html" class="uppercase font-semibold hover:text-red-600">Home</a>
+            <a href="about.html" class="uppercase font-semibold hover:text-red-600">About</a>
+            <a href="services.html" class="uppercase font-semibold hover:text-red-600">Services</a>
+            <a href="contact.html" class="uppercase font-semibold hover:text-red-600">Contact</a>
+            <a href="contact.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">
+                Book Now
+            </a>
+        </div>
     </nav>
     <!-- About Us Hero -->
     <section
@@ -94,7 +113,8 @@
             <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition">
                 <h3 class="text-2xl font-semibold mb-4 text-red-600">Our Mission</h3>
                 <p class="text-gray-700 leading-relaxed">
-                    At Boss Auto Repairs, our mission is to deliver premium, reliable, and transparent automotive repair
+                    At KingsAuto Service Centre, our mission is to deliver premium, reliable, and transparent automotive
+                    repair
                     services by combining advanced diagnostics, skilled workmanship, and genuine customer care.
                     We are committed to keeping every client safely on the road through affordable, accredited service
                     rooted in integrity and passion for excellence.
@@ -131,7 +151,7 @@
                 <h2 class="text-3xl font-bold mb-4 text-red-600">Meet “The Boss”</h2>
                 <p class="text-gray-300 text-base leading-relaxed">
                     Gerard Andrews, affectionately referred to as <strong>“The Boss”</strong>, stands at the helm of
-                    Boss Auto Repairs — a respected establishment situated in the heart of Newcastle’s CBD.
+                    KingsAuto Service Centre — a respected establishment situated in the heart of Newcastle’s CBD.
                     <br /><br />
                     With over <strong>11 years of hands-on experience</strong> in motor mechanics, Gerard’s journey
                     began with formal training under the esteemed <strong>Mercedes Benz</strong> brand, where he honed
@@ -155,7 +175,7 @@
         <!-- Description -->
         <div class="max-w-4xl mx-auto text-lg text-center mb-12 leading-relaxed">
             <p class="text-gray-800">
-                At Boss Auto Repairs, we take pride in offering comprehensive servicing for all vehicle makes and
+                At KingsAuto Service Centre, we take pride in offering comprehensive servicing for all vehicle makes and
                 models.
                 Our meticulous maintenance procedures ensure your vehicle’s optimal performance and longevity.
                 <br><br>
@@ -227,59 +247,68 @@
     </section>
 
     <!-- Latest Diagnostic Technology Section -->
-<section class="bg-[#f5f5f5] text-[#1c1c1c] px-6 md:px-16 lg:px-24 py-20">
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-    
-    <!-- Text Content -->
-    <div class="md:w-1/2">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6 uppercase tracking-wide">
-        Latest Diagnostic Technology
-      </h2>
-      <p class="text-lg leading-relaxed text-gray-800">
-        At Boss Auto Repairs, we harness the power of cutting-edge diagnostic technology to precisely identify any issues plaguing your vehicle, enabling us to undertake swift and efficient repairs.
-        
-        Our expertise spans a wide spectrum of automotive systems, encompassing repairs for the engine, wheels, brakes, gearboxes, clutches, cambelts, and suspensions, among others.
-        <br><br>
-        With access to comprehensive technical data, our skilled technicians are equipped to tackle various repair challenges—from diff repairs to master cylinders, turbo repairs, exhaust systems, shock absorbers, toothed belt replacements, wheel bearings, steering problems, and oil leaks.
-        
-        We are committed to delivering top-notch service and ensuring your vehicle receives meticulous attention, restoring it to optimal performance and reliability.
-      </p>
-    </div>
+    <section class="bg-[#f5f5f5] text-[#1c1c1c] px-6 md:px-16 lg:px-24 py-20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
 
-    <!-- Image -->
-    <div class="md:w-1/2">
-      <img src="assets/images/latest.png" alt="Diagnostic Technology"
-        class="rounded-xl shadow-lg w-full object-cover max-h-[600px]" />
-    </div>
+            <!-- Text Content -->
+            <div class="md:w-1/2">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 uppercase tracking-wide">
+                    Latest Diagnostic Technology
+                </h2>
+                <p class="text-lg leading-relaxed text-gray-800">
+                    At KingsAuto Service Centre, we harness the power of cutting-edge diagnostic technology to precisely
+                    identify any issues plaguing your vehicle, enabling us to undertake swift and efficient repairs.
 
-  </div>
-</section>
+                    Our expertise spans a wide spectrum of automotive systems, encompassing repairs for the engine,
+                    wheels, brakes, gearboxes, clutches, cambelts, and suspensions, among others.
+                    <br><br>
+                    With access to comprehensive technical data, our skilled technicians are equipped to tackle various
+                    repair challenges—from diff repairs to master cylinders, turbo repairs, exhaust systems, shock
+                    absorbers, toothed belt replacements, wheel bearings, steering problems, and oil leaks.
+
+                    We are committed to delivering top-notch service and ensuring your vehicle receives meticulous
+                    attention, restoring it to optimal performance and reliability.
+                </p>
+            </div>
+
+            <!-- Image -->
+            <div class="md:w-1/2">
+                <img src="assets/images/latest.png" alt="Diagnostic Technology"
+                    class="rounded-xl shadow-lg w-full object-cover max-h-[600px]" />
+            </div>
+
+        </div>
+    </section>
 
 
     <!-- Footer -->
-    <footer class="bg-[#111] text-gray-400 px-6 md:px-16 lg:px-24 py-10">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+  <footer class="bg-[#111] text-gray-400 px-6 md:px-16 lg:px-24 py-10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
 
-            <!-- Logo or Name -->
-            <div class="flex items-center gap-3">
-                <img src="assets/images/logo/logo.jpg" alt="Logo" class="h-10 rounded object-contain" />
-                <span class="text-white font-semibold text-lg">KingsAuto Service Centre</span>
-            </div>
-
-            <!-- Footer Links -->
-            <div class="flex gap-6 text-sm">
-                <a href="/" class="hover:text-red-500">Home</a>
-                <a href="/about.html" class="hover:text-red-500">About</a>
-                <a href="/services.html" class="hover:text-red-500">Services</a>
-                <a href="/contact.html" class="hover:text-red-500">Contact</a>
-            </div>
+      <!-- Logo or Name -->
+      <div class="flex items-center gap-3">
+        <img src="assets/images/logo/logo-transparent.png" alt="Logo" class="h-20 rounded object-contain" />
+        <div class="h-full flex items-center justify-center">
+          <h1 class="text-2xl font-bold uppercase tracking-wide leading-none logo-h1">
+            <span class="text-red-600">Kings</span><span class="text-white">Auto</span>
+          </h1>
         </div>
+      </div>
 
-        <!-- Copyright -->
-        <div class="text-center text-xs mt-6 text-gray-500">
-            &copy; 2025 KingsAuto Service Centre. All rights reserved.
-        </div>
-    </footer>
+      <!-- Footer Links -->
+      <div class="flex gap-6 text-sm">
+        <a href="index.html" class="hover:text-red-500">Home</a>
+        <a href="about.html" class="hover:text-red-500">About</a>
+        <a href="services.html" class="hover:text-red-500">Services</a>
+        <a href="contact.html" class="hover:text-red-500">Contact</a>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center text-xs mt-6 text-gray-500">
+      &copy; 2025 KingsAuto Service Centre. All rights reserved.
+    </div>
+  </footer>
 
     <script src="js/nav.js"></script>
     <script src="js/logo-slider.js" defer></script>
