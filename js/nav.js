@@ -33,4 +33,23 @@ window.addEventListener("load", () => {
     }, 1500); // show for at least 1.5 seconds even if page is ready earlier
   });
 
+  document.addEventListener('DOMContentLoaded', () => {
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollToTopBtn.classList.add("opacity-100", "pointer-events-auto");
+      scrollToTopBtn.classList.remove("opacity-0", "pointer-events-none");
+    } else {
+      scrollToTopBtn.classList.add("opacity-0", "pointer-events-none");
+      scrollToTopBtn.classList.remove("opacity-100", "pointer-events-auto");
+    }
+  });
+
+  scrollToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+
+
 
